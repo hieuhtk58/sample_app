@@ -1,11 +1,24 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/* mixins, variables, etc. */
+$light-gray: #777;
 
-$gray-medium-light: #eaeaea;
+/* header */
 
-/* universal */
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+}
 
 body {
   padding-top: 60px;
@@ -26,7 +39,9 @@ textarea {
   }
 }
 
-/* typography */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
 
 h1 {
   font-size: 3em;
@@ -34,27 +49,19 @@ h1 {
   margin-bottom: 30px;
   text-align: center;
 }
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $light-gray;
+}
+
 p {
   font-size: 1.1em;
   line-height: 1.7em;
-}
-
-
-/* header */
-
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-  &:hover {
-    color: #26E7FF;
-    text-decoration: none;
-  }
 }
 
 /* footer */
@@ -62,10 +69,10 @@ p {
 footer {
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid $gray-medium-light;
-  color: $gray-light;
+  border-top: 1px solid #eaeaea;
+  color: $light-gray;
   a {
-    color: $gray;
+    color: #555;
     &:hover {
       color: $gray-darker;
     }
@@ -82,6 +89,8 @@ footer {
     }
   }
 }
+
+$gray-medium-light: #eaeaea;
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -136,11 +145,20 @@ aside {
   margin-top: 15px;
 }
 
-.btn-signup {
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
   width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
 }
 
-.error {
+input {
+  height: auto !important;
+}
+
+#error_explanation {
   color: red;
   ul {
     color: red;
@@ -155,10 +173,6 @@ aside {
   }
 }
 
-.btn-login {
-  width: 100%;
-}
-
 .checkbox {
   margin-top: -10px;
   margin-bottom: 10px;
@@ -171,4 +185,16 @@ aside {
 #session_remember_me {
   width: auto;
   margin-left: 0;
+}
+
+/* Users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
 }
